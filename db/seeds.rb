@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Questionnaire.create([
-  {question: 'Frage 1', workingstyle: 'Activist'},
-  {question: 'Frage 2', workingstyle: 'Activist'},
-  {question: 'Frage 3', workingstyle: 'Activist'},
-  {question: 'Frage 4', workingstyle: 'Activist'},
+
+  {question: 'activistquestion', workingstyle: 'Activist'},
+  {question: 'theoristquestion', workingstyle: 'Theorist'},
+  {question: 'pragmatistquestion', workingstyle: 'Pragmatist'},
+  {question: 'reflectorquestion', workingstyle: 'Reflector'},
 ])

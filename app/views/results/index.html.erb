@@ -1,0 +1,4 @@
+<h1>Results</h1>
+<% @results.each do |result| %>
+<p><a href="result/<%= result[:id]%>"><%= result[:name]%></a></p>
+<% end %>

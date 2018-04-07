@@ -7,6 +7,7 @@ class ParticipationsController < ApplicationController
     parseAnswers()
 
     Result.new(:name => participant, :very_low_pref => getVeryLowPreferenceWorkingStyles().to_s, :low_pref => getLowPreferenceWorkingStyles().to_s, :moderat_pref => getModeratePreferenceWorkingStyles().to_s, :strong_pref => getStrongPreferenceWorkingStyles().to_s, :very_strong_pref => getVeryStrongPreferenceWorkingStyles().to_s).save
+    redirect_to :controller => 'results', :action => 'index'
   end
 
   def getVeryStrongPreferenceWorkingStyles

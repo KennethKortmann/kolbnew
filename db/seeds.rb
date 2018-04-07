@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Questionnaire.create([
+  {question: 'Frage 1', workingstyle: 'Activist'},
+  {question: 'Frage 2', workingstyle: 'Activist'},
+  {question: 'Frage 3', workingstyle: 'Activist'},
+  {question: 'Frage 4', workingstyle: 'Activist'},
+])

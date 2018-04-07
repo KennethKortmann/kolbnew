@@ -5,11 +5,8 @@ class ParticipationsController < ApplicationController
     participant = params["participant"]
     getWorkingStyles()
     parseAnswers()
-    getVeryStrongPreferenceWorkingStyles()
-    getStrongPreferenceWorkingStyles()
-    getModeratePreferenceWorkingStyles()
-    getLowPreferenceWorkingStyles()
-    getVeryLowPreferenceWorkingStyles()
+
+    Result.new(:name => participant, :very_low_pref => getVeryLowPreferenceWorkingStyles().to_s, :low_pref => getLowPreferenceWorkingStyles().to_s, :moderat_pref => getModeratePreferenceWorkingStyles().to_s, :strong_pref => getStrongPreferenceWorkingStyles().to_s, :very_strong_pref => getVeryStrongPreferenceWorkingStyles().to_s).save
   end
 
   def getVeryStrongPreferenceWorkingStyles

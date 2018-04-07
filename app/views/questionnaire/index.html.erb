@@ -1,2 +1,12 @@
-<h1>Questionnaire#index</h1>
-<p>Find me in app/views/questionnaire/index.html.erb</p>
+<h1>Kolb’s Learning Style Questionnaire</h1>
+
+<form action="participate" method="post">
+  <p><label> Your Name:</label> <input type="text" name="participant"/>
+  <% @questions.each do |question| %>
+    <p>
+      <input type="checkbox" name="q_<%=question[:id] %>"></input>
+      <label><%=question[:question] %></label>
+    </p>
+  <% end %>
+  <input type="submit" value="Evaluate" />
+</form>

@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407085200) do
+ActiveRecord::Schema.define(version: 20180407123343) do
 
   create_table "questionnaires", force: :cascade do |t|
     t.text "question"
     t.text "workingstyle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.text "name"
+    t.text "very_strong_pref"
+    t.text "strong_pref"
+    t.text "moderat_pref"
+    t.text "low_pref"
+    t.text "very_low_pref"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

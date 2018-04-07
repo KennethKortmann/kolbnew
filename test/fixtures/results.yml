@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  very_strong_pref: MyText
+  strong_pref: MyText
+  moderat_pref: MyText
+  low_pref: MyText
+  very_low_pref: MyText
+
+two:
+  name: MyText
+  very_strong_pref: MyText
+  strong_pref: MyText
+  moderat_pref: MyText
+  low_pref: MyText
+  very_low_pref: MyText

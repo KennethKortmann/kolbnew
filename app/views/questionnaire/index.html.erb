@@ -1,12 +1,25 @@
-<h1>Kolb’s Learning Style Questionnaire</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Kolb’s Learning Style Questionnaire</h1>
 
-<form action="participate" method="post">
-  <p><label> Your Name:</label> <input type="text" name="participant"/>
-  <% @questions.each do |question| %>
-    <p>
-      <input type="checkbox" name="q_<%=question[:id] %>" value="yes"></input>
-      <label><%=question[:question] %></label>
-    </p>
-  <% end %>
-  <input type="submit" value="Evaluate" />
-</form>
+      <form action="participate" method="post">
+        <div class="form-group">
+          <label> Your Name:</label>
+          <input type="text" name="participant"/>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+
+        <% @questions.each do |question| %>
+          <div class="form-group">
+            <input type="checkbox" class="form-check-input" name="q_<%=question[:id] %>" value="yes"></input>
+            <label><%=question[:question] %></label>
+          </div>
+        <% end %>
+        <input type="submit" class="btn btn-primary" value="Evaluate" />
+      </form>
+
+    </div>
+  </div>
+</div>

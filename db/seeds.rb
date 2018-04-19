@@ -6,10 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Questionnaire.create([
+#Questionnaire.create([
+#  {question: 'activistquestion', workingstyle: 'Activist'},
+#  {question: 'theoristquestion', workingstyle: 'Theorist'},
+#  {question: 'pragmatistquestion', workingstyle: 'Pragmatist'},
+#  {question: 'reflectorquestion', workingstyle: 'Reflector'},
+#])
+questionsConfig = YAML.load_file('config/kolb-questions.yml')
 
-  {question: 'activistquestion', workingstyle: 'Activist'},
-  {question: 'theoristquestion', workingstyle: 'Theorist'},
-  {question: 'pragmatistquestion', workingstyle: 'Pragmatist'},
-  {question: 'reflectorquestion', workingstyle: 'Reflector'},
-])
+questionsConfig["questions"].each do |question|
+  #Questionnaire.create({question: question["question"], question: question["workingstyle"]});
+  Questionnaire.create({question: question["question"]});
+end

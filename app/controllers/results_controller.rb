@@ -6,4 +6,9 @@ class ResultsController < ApplicationController
   def detail
     @result = Result.find(params["id"])
   end
+
+  def pdf
+    @result = Result.find(params["id"])
+    render :pdf => "pdf"
+  end
 end

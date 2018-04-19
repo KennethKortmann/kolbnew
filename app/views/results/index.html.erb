@@ -1,4 +1,7 @@
 <h1>Results</h1>
 <% @results.each do |result| %>
-<p><a href="result/<%= result[:id]%>"><%= result[:name]%></a></p>
+  <p>
+    <a href="result/<%= result[:id]%>"><%= result[:name]%></a>
+    <a href="result/pdf/<%= result[:id]%>" target="_blank">PDF</a>
+  </p>
 <% end %>

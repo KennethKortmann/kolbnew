@@ -15,6 +15,5 @@
 questionsConfig = YAML.load_file('config/kolb-questions.yml')
 
 questionsConfig["questions"].each do |question|
-  #Questionnaire.create({question: question["question"], question: question["workingstyle"]});
-  Questionnaire.create({question: question["question"]});
+  Questionnaire.create({question: question["question"], workingstyle: question["workingstyle"]});
 end

@@ -6,88 +6,110 @@ class ParticipationsController < ApplicationController
     getWorkingStyles()
     parseAnswers()
 
-    Result.new(:name => participant, :very_low_pref => getVeryLowPreferenceWorkingStyles().to_s, :low_pref => getLowPreferenceWorkingStyles().to_s, :moderat_pref => getModeratePreferenceWorkingStyles().to_s, :strong_pref => getStrongPreferenceWorkingStyles().to_s, :very_strong_pref => getVeryStrongPreferenceWorkingStyles().to_s).save
+    veryLow = getVeryLowPreferenceWorkingStyles().join(',')
+    low = getLowPreferenceWorkingStyles().join(',')
+    moderate = getModeratePreferenceWorkingStyles().join(',')
+    strong = getStrongPreferenceWorkingStyles().join(',')
+    veryStrong = getVeryStrongPreferenceWorkingStyles().join(',')
+
+    Result.new(
+      :name => participant,
+      :very_low_pref => veryLow,
+      :low_pref => low ,
+      :moderat_pref => moderate,
+      :strong_pref => strong,
+      :very_strong_pref => veryStrong
+    ).save
     redirect_to :controller => 'results', :action => 'index'
   end
 
   def getVeryStrongPreferenceWorkingStyles
     @veryStrongWorkingStyles = []
     if @activistPoints >= 13
-      @veryStrongWorkingStyles << "Activist"
+      @veryStrongWorkingStyles.push "Activist"
     end
     if @reflectorPoints >= 18
-      @veryStrongWorkingStyles << "Reflector"
+      @veryStrongWorkingStyles.push "Reflector"
     end
     if @theoristPoints >= 16
-      @veryStrongWorkingStyles << "Theorist"
+      @veryStrongWorkingStyles.push "Theorist"
     end
     if @pragmatistPoints >= 17
-      @veryStrongWorkingStyles << "Pragmatist"
+      @veryStrongWorkingStyles.push "Pragmatist"
     end
+    return @veryStrongWorkingStyles
   end
 
   def getStrongPreferenceWorkingStyles
     @strongWorkingStyles = []
     if @activistPoints >= 11 && @activistPoints <= 12
-      @strongWorkingStyles << "Activist"
+      @strongWorkingStyles.push "Activist"
     end
     if @reflectorPoints >= 15 && @reflectorPoints <= 17
-      @strongWorkingStyles << "Reflector"
+      @strongWorkingStyles.push "Reflector"
     end
     if @theoristPoints >= 14 && @theoristPoints <= 15
-      @strongWorkingStyles << "Theorist"
+      @strongWorkingStyles.push "Theorist"
     end
     if @pragmatistPoints >= 15 && @pragmatistPoints <= 15
-      @strongWorkingStyles << "Pragmatist"
+      @strongWorkingStyles.push "Pragmatist"
     end
+    return @strongWorkingStyles
   end
 
   def getModeratePreferenceWorkingStyles
     @moderateWorkingStyles = []
     if @activistPoints >= 7 && @activistPoints <= 10
-      @moderateWorkingStyles << "Activist"
+      @moderateWorkingStyles.push "Activist"
     end
     if @reflectorPoints >= 12 && @reflectorPoints <= 14
-      @moderateWorkingStyles << "Reflector"
+      @moderateWorkingStyles.push "Reflector"
     end
     if @theoristPoints >= 11 && @theoristPoints <= 13
-      @moderateWorkingStyles << "Theorist"
+      @moderateWorkingStyles.push "Theorist"
     end
     if @pragmatistPoints >= 12 && @pragmatistPoints <= 14
-      @moderateWorkingStyles << "Pragmatist"
+      @moderateWorkingStyles.push "Pragmatist"
     end
+    return @moderateWorkingStyles
   end
 
   def getLowPreferenceWorkingStyles
+  puts @activistPoints
+  puts @reflectorPoints
+  puts @theoristPoints
+  puts @pragmatistPoints
     @lowWorkingStyles = []
     if @activistPoints >= 4 && @activistPoints <= 6
-      @lowWorkingStyles << "Activist"
+      @lowWorkingStyles.push "Activist"
     end
     if @reflectorPoints >= 9 && @reflectorPoints <= 11
-      @lowWorkingStyles << "Reflector"
+      @lowWorkingStyles.push "Reflector"
     end
     if @theoristPoints >= 8 && @theoristPoints <= 10
-      @lowWorkingStyles << "Theorist"
+      @lowWorkingStyles.push "Theorist"
     end
     if @pragmatistPoints >= 9 && @pragmatistPoints <= 11
-      @lowWorkingStyles << "Pragmatist"
+      @lowWorkingStyles.push "Pragmatist"
     end
+    return @lowWorkingStyles
   end
 
   def getVeryLowPreferenceWorkingStyles
     @veryLowWorkingStyles = []
     if @activistPoints <= 3
-      @veryLowWorkingStyles << "Activist"
+      @veryLowWorkingStyles.push "Activist"
     end
     if @reflectorPoints <= 8
-      @veryLowWorkingStyles << "Reflector"
+      @veryLowWorkingStyles.push "Reflector"
     end
     if @theoristPoints <= 7
-      @veryLowWorkingStyles << "Theorist"
+      @veryLowWorkingStyles.push "Theorist"
     end
     if @pragmatistPoints <= 8
-      @veryLowWorkingStyles << "Pragmatist"
+      @veryLowWorkingStyles.push "Pragmatist"
     end
+    return @veryLowWorkingStyles
   end
 
   def getWorkingStyles
